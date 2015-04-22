@@ -1,0 +1,3 @@
+This is a Java Game Engine to demonstrate Functional Reactive Architecture.
+It uses SodiumFRP for the FRP implementation and LWJGL for many of the game engine features.
+
