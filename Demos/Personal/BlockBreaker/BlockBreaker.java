@@ -59,5 +59,3 @@ public class BlockBreaker implements Game {
         return Scene.graph;
     }
 }
-
-
