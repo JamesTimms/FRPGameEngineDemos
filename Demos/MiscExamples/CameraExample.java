@@ -1,7 +1,6 @@
 package MiscExamples;
 
 import org.engineFRP.FRP.FRPKeyboard;
-import org.engineFRP.core.Camera;
 import org.engineFRP.maths.Vector3f;
 import sodium.Cell;
 import sodium.Stream;

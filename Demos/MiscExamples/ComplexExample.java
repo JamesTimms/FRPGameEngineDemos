@@ -19,7 +19,7 @@ public class ComplexExample {
      * @return The behaviour that should be assigned to the camera's position.
      */
     public static Cell<Vector3f> simple_lerp() {
-        return CameraExample.movement()
+        return CameraExample.movement(PLAY)
                 .gate(CameraExample.isMode(PLAY))//Defines how to check the game mode.
                 .accum(Vector3f.ZERO, (curValue, newValue) -> {
                     final float LERP_FACTOR = 0.2f;
@@ -38,7 +38,7 @@ public class ComplexExample {
     public static Cell<Vector3f> complex_example() {
         return Messaging.stream
                 .gate(CameraExample.isMode(PLAY))//Defines how to check the game mode.
-                .snapshot(CameraExample.movement().hold(Vector3f.ZERO),//Defines how to take the most recent
+                .snapshot(CameraExample.movement(PLAY).hold(Vector3f.ZERO),//Defines how to take the most recent
                         // value received from the stream defined in movement.
                         (message, mostRecentCameraPos) -> mostRecentCameraPos.mul(message.myMessage.length()))//
                         // increases the camera's movement by the size of message for no real reason.
