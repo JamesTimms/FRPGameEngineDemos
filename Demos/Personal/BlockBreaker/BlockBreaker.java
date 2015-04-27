@@ -44,8 +44,9 @@ public class BlockBreaker implements Game {
                 new GameObject(new Vector3f(0.0f, -0.8f, -1.0f),
                         MeshUtil.BuildRectWithTexture(PADDLE_TEXTURE, 0.3f, 0.025f), Material.white)
                         .name(PADDLE_GO)
-                        .addStaticPhysics()
-                        .updateToJbox(BBLogic.paddleMovement(-0.1f))
+                        .addKinematicPhysics()
+//                        .updateToJbox(BBLogic.paddleMovement(-0.04f))
+                        .apply(BBLogic::velocityOfBatStream, "")//TODO: clean up how this apply function works.
         );
         Scene.graph.add(
                 new GameObject(new Vector3f(0.0f, 0.0f, -1.0f), MeshUtil.BuildCircle(0.028f), Material.white)

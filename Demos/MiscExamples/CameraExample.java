@@ -56,9 +56,9 @@ public class CameraExample {
         final float MOVE_AMOUNT = 1.0f;
         return FRPKeyboard.keyEvent
                 .gate(isMode(gameState))
-                .filter(key -> FRPKeyboard.isArrowKeyPressed(key.key))
+                .filter(key -> FRPKeyboard.isArrowKeyPressed(key.code))
                 .map(key -> {//Play state movement for camera
-                    switch(key.key) {
+                    switch(key.code) {
                         case (GLFW_KEY_RIGHT):
                             return new Vector3f(-MOVE_AMOUNT, 0.0f, 0.0f);
                         case (GLFW_KEY_LEFT):

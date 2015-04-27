@@ -67,25 +67,25 @@ public class Demo1 {
     public static void printKeyDown() {
         allListeners.add(FRPKeyboard.keyEvent
                 .filter(key -> key.action == GLFW_PRESS)
-                .listen(key -> System.out.println("down " + key.key)));
+                .listen(key -> System.out.println("down " + key.code)));
 
     }
 
     public static void printKeyUp() {
         allListeners.add(FRPKeyboard.keyEvent
                 .filter(key -> key.action == GLFW_RELEASE)
-                .listen(key -> System.out.println("up " + key.key)));
+                .listen(key -> System.out.println("up " + key.code)));
     }
 
     public static void setupTimeIncreaseKeys() {
         allListeners.add(FRPKeyboard.keyEvent
-                .filter(key -> key.key == GLFW_KEY_UP)
+                .filter(key -> key.code == GLFW_KEY_UP)
                 .listen(key -> {
                     frameTimer.frameRate += 1;
                     System.out.println(frameTimer.frameRate);
                 }));
         allListeners.add(FRPKeyboard.keyEvent
-                .filter(key -> key.key == GLFW_KEY_DOWN)
+                .filter(key -> key.code == GLFW_KEY_DOWN)
                 .listen(key -> {
                     ;
                     frameTimer.frameRate -= 1;
