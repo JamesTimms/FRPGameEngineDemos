@@ -1,4 +1,4 @@
-package MiscExamples;
+package MiscExamples.examplesForDan;
 
 import sodium.Listener;
 import sodium.StreamSink;import java.lang.String;

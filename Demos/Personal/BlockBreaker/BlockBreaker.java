@@ -1,7 +1,6 @@
 package Personal.BlockBreaker;
 
 import org.engineFRP.core.Engine;
-import org.engineFRP.core.Game;
 import org.engineFRP.core.GameObject;
 import org.engineFRP.core.Scene;
 import org.engineFRP.Physics.JBoxWrapper;
@@ -9,12 +8,13 @@ import org.engineFRP.maths.Vector3f;
 import org.engineFRP.rendering.MeshUtil;
 import org.engineFRP.rendering.shaders.Material;
 
+
 import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Created by TekMaTek on 30/03/2015.
  */
-public class BlockBreaker implements Game {
+public class BlockBreaker {
 
     private static final String BLOCK_TEXTURE = "./res/textures/block.png";
     private static final String PADDLE_TEXTURE = "./res/textures/box.jpg";
@@ -22,11 +22,10 @@ public class BlockBreaker implements Game {
     private static final String PADDLE_GO = "Paddle";
 
     public static void main(String[] args) {
-        Engine.runGame(new BlockBreaker());
+        Engine.runGame(BlockBreaker::setupScene);
     }
 
-    @Override
-    public Scene setupScene() {
+    public static Scene setupScene() {
         final float offsetY = 0.5f;
         int counter = 0;
         for(int i = -3; i < 4; i++) {
@@ -45,7 +44,6 @@ public class BlockBreaker implements Game {
                         MeshUtil.BuildRectWithTexture(PADDLE_TEXTURE, 0.3f, 0.025f), Material.white)
                         .name(PADDLE_GO)
                         .addKinematicPhysics()
-//                        .updateToJbox(BBLogic.paddleMovement(-0.04f))
                         .apply(BBLogic::velocityOfBatStream, "")//TODO: clean up how this apply function works.
         );
         Scene.graph.add(

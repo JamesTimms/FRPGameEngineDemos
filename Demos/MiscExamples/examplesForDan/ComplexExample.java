@@ -1,10 +1,10 @@
-package MiscExamples;
+package MiscExamples.examplesForDan;
 
 import org.engineFRP.FRP.FRPKeyboard;
 import org.engineFRP.maths.Vector3f;
 import sodium.Cell;
 
-import static MiscExamples.CameraExample.GameState.*;
+import static MiscExamples.examplesForDan.CameraExample.GameState.*;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_RIGHT;
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 

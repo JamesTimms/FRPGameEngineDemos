@@ -1,1 +1,55 @@
-FRPGame Engine demos.
+Guide to using the Game Engine
+
+Make sure you have Java 8 installed then download the skeleton project which has all the up to date dependencies.
+
+1. Either go to https://github.com/JamesTimms/FRPSkeleton, download, fork
+or pull the repository.
+2. Setup the repository in your preferred development environment.
+The skeleton repository has the Jar file for the game engine in it, alternatively you can download
+
+the Game Engine and compile it into a Jar file yourself.
+
+1. Download the game engine from https://github.com/JamesTimms/FRPGameEngine.
+2. Set it up and compile it into a Jar.
+
+To create a simple game:
+3. Create a Java file that inherits from the Game interface.
+--------------------------------------------------------------------------------------------------------------------------
+public class SimpleGame implements Game {
+    public static void main(String[] args) {
+        Engine.runGame(new SimpleGame());
+    }
+
+    /**
+     * This is a simple game that has nothing going on.
+     *
+     * @return The scene graph the engine should use.
+     */
+    @Override
+    public Scene setupScene() {
+        return Scene.graph;
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------
+This example and other are in the Skeleton demo folder.
+4. BEFORE RUNNING THE APPLICATION YOU MUST SETUP LWJGL! This can be
+done by setting VM options to -Djava.library.path=”native”. A complete guide can be found
+here http://stackoverflow.com/questions/12332381/running-lwjgl-program.
+48 of 50
+Chapter A Guide to using the Game Engine
+This has to be done because lwjgl needs to know where the native files are which should
+be located in the skeleton. If you chose to compile the FRPGameEngine Jar yourself make
+sure you download the natives for lwjgl from http://www.lwjgl.org/download.
+5. Now you can build a game in the setupScene method.
+--------------------------------------------------------------------------------------------------------------------------
+...
+public Scene setupScene() {
+    return Scene.graph.add(
+            new GameObject(Vector3f.ZERO, MeshUtil.BuildSquare())
+                    .name("MySquare")
+    );
+}
+...
+--------------------------------------------------------------------------------------------------------------------------
+For more examples refer to the FRPGameEngine demos at https://github.com/JamesTimms/
+FRPGameEngineDemos.

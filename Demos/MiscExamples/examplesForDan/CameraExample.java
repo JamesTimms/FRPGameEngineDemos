@@ -1,4 +1,4 @@
-package MiscExamples;
+package MiscExamples.examplesForDan;
 
 import org.engineFRP.FRP.FRPKeyboard;
 import org.engineFRP.maths.Vector3f;

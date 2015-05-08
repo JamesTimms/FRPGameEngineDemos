@@ -107,7 +107,6 @@ public class BBLogic {
                             Vec2 curV = go.physics.body.getLinearVelocity();
                             float v = Math.abs(go.physics.body.getLinearVelocity().x);
                             if(v > 0.01f) {
-                                System.out.println(curV);
                                 Vec2 s = slowDown.mul(curV.x).negate();//.mul((curV.x > 0.0f) ? 1.0f : -1.0f);
                                 go.physics.body.setLinearVelocity(curV.add(s));
                             }
